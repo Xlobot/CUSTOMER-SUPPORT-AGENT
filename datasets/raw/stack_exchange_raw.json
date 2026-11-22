@@ -1,0 +1,50 @@
+[
+  {
+    "id": "se_001",
+    "title": "Wi-Fi shows 'Connected, No Internet' on Windows 11 but other devices work fine",
+    "body": "My Windows 11 laptop connects to the home Wi-Fi network, but states 'No Internet Access'. My smartphone connects and browses fine on the same Wi-Fi. How can I resolve this?",
+    "accepted_answer": "Since other devices work on the same Wi-Fi, the router and ISP are functional. The issue is client-specific: 1. Flush the DNS cache and reset Winsock using cmd (Run as Administrator): `netsh winsock reset` and `ipconfig /flushdns`. 2. Verify IPv4 properties are set to 'Obtain an IP address automatically' and 'Obtain DNS server address automatically'. 3. Update or reinstall the Wi-Fi adapter driver in Device Manager.",
+    "category": "device_connectivity",
+    "source": "SuperUser (CC BY-SA 4.0, attribution: user/73412)"
+  },
+  {
+    "id": "se_002",
+    "title": "High ping and severe packet loss every evening between 8 PM and 11 PM",
+    "body": "During the day my ping to 8.8.8.8 is 15ms with 0% loss. Every evening, ping spikes to 180ms with 15-20% packet loss. How can I identify whether it's local Wi-Fi interference or ISP congestion?",
+    "accepted_answer": "Run a continuous ping (`ping -t 192.168.1.1`) to your local router gateway, and simultaneously run a continuous ping (`ping -t 8.8.8.8`) to a public DNS. If ping to 192.168.1.1 is steady at 1ms with 0% loss while 8.8.8.8 spikes, your local Wi-Fi and router are clear; the congestion is on your ISP's node or upstream transit. If your gateway ping also spikes, the issue is local Wi-Fi channel saturation or a stressed router CPU.",
+    "category": "packet_loss_latency",
+    "source": "Network Engineering Stack Exchange (CC BY-SA 4.0)"
+  },
+  {
+    "id": "se_003",
+    "title": "Can open websites by IP address (142.250.190.46) but not by URL (google.com)",
+    "body": "When typing http://142.250.190.46 in Chrome, Google opens. When typing google.com, I get DNS_PROBE_FINISHED_BAD_CONFIG. What is broken?",
+    "accepted_answer": "This is a classic DNS server failure. Your IP routing and gateway are operational, but your configured DNS server is unreachable or malfunctioning. Change your DNS to public providers: set Primary DNS to 8.8.8.8 (Google) or 1.1.1.1 (Cloudflare), and Secondary to 8.8.4.4 or 1.0.0.1, then flush DNS with `ipconfig /flushdns`.",
+    "category": "dns_resolution",
+    "source": "SuperUser (CC BY-SA 4.0)"
+  },
+  {
+    "id": "se_004",
+    "title": "Router LOS / PON red blinking light on fiber ONT modem",
+    "body": "My optical fiber router has a red blinking LED marked 'LOS'. The internet LED is completely off. What does this mean?",
+    "accepted_answer": "LOS stands for Loss of Signal. A blinking red LOS light means the ONT is receiving no optical light over the physical glass fiber. This cannot be resolved by rebooting or resetting your router. Inspect the thin fiber patch cord to ensure it has not been kinked, pinched, or unplugged. If intact, contact your ISP to report a fiber line cut or OLT port fault.",
+    "category": "isp_outage",
+    "source": "SuperUser (CC BY-SA 4.0)"
+  },
+  {
+    "id": "se_005",
+    "title": "Frequent random Wi-Fi disconnections every 15-30 minutes",
+    "body": "My laptop drops Wi-Fi randomly throughout the day and takes 30 seconds to reconnect. Other devices seem mostly stable.",
+    "accepted_answer": "1. Disable 802.11 power saving in Windows Device Manager: under Network Adapters > Properties > Power Management, uncheck 'Allow the computer to turn off this device to save power'. 2. Check 2.4GHz Wi-Fi channel overlap using a Wi-Fi analyzer and switch the router to an uncontested channel (1, 6, or 11). 3. If dual-band, separate 2.4GHz and 5GHz SSIDs so the device does not continuously roam between bands.",
+    "category": "wifi_signal_issue",
+    "source": "SuperUser (CC BY-SA 4.0)"
+  },
+  {
+    "id": "se_006",
+    "title": "Getting 169.254.x.x IP address and no default gateway listed",
+    "body": "Running ipconfig shows IPv4 Address: 169.254.120.45 and Default Gateway is blank. Why won't my router give me an IP address?",
+    "accepted_answer": "Your device requested a DHCP lease (DHCP Discover), but the router failed to respond with an Offer. Steps to fix: 1. Restart the router to clear exhausted DHCP pools or hung DHCP daemon. 2. Verify router DHCP pool has available addresses (not maxed out). 3. In Windows command prompt run `ipconfig /release` followed by `ipconfig /renew`. 4. Try connecting via Ethernet to see if the DHCP server responds over wired LAN.",
+    "category": "dhcp_ip_configuration",
+    "source": "SuperUser (CC BY-SA 4.0)"
+  }
+]

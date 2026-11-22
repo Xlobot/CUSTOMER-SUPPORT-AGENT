@@ -1,0 +1,1178 @@
+[
+  {
+    "id": "isp_outage_017",
+    "text": "ISP distribution node failure affecting multiple buildings in neighborhood.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "wifi_signal_issue_008",
+    "text": "Wifi keeps disconnecting and reconnecting on my android phone every few minutes.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_003",
+    "text": "Ping to 8.8.8.8 has 25% packet loss and high jitter on my connection.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_024",
+    "text": "Router DHCP server daemon stopped handing out local IP addresses.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_023",
+    "text": "Unable to browse any web pages, router says WAN link down.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_006",
+    "text": "I typed the right Wi-Fi password on my new tablet but it says authentication error.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_015",
+    "text": "Client self-assigned APIPA address 169.254.12.34 because DHCP offer failed.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_027",
+    "text": "Wireless drops every time I walk into the kitchen with my laptop.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_013",
+    "text": "Area-wide outage, fiber box has flashing red indicator, no internet.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_023",
+    "text": "Gaming connection is lagging with 20% packet loss and unstable ping.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_008",
+    "text": "Can connect to Discord voice by IP, but Chrome says DNS error.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_011",
+    "text": "My iPad works on the Wi-Fi but my laptop keeps saying network security key incorrect.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_011",
+    "text": "Another computer on this network has the same IP address error.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_013",
+    "text": "Terrible latency spikes on my broadband connection during prime time.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_011",
+    "text": "Websites refuse to resolve, keep getting DNS address could not be found.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_005",
+    "text": "Other family members have normal internet, only my laptop won't connect.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_028",
+    "text": "Internet feels sluggish and latency is spiking uncontrollably.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_005",
+    "text": "Frequent wifi drops whenever someone turns on the microwave oven.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_011",
+    "text": "Gaming ping jumps to 500ms randomly, discord says 20% packet loss.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_015",
+    "text": "Network security key mismatch error on my work laptop only.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_021",
+    "text": "Latency spikes to 450ms whenever another device streams video.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_024",
+    "text": "Specific tablet refuses to associate with home wireless access point.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_005",
+    "text": "My PC failed to obtain an IP lease from the router DHCP server.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_001",
+    "text": "The wifi is connected on my phone but there is no internet at all.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_028",
+    "text": "ISP backbone fiber cut, ONT shows flashing red LOS indicator.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "isp_outage_019",
+    "text": "Area service outage reported by ISP, optical fiber backbone severed.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_018",
+    "text": "Excessive packet drops causing TCP retransmission and slow web browsing.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_006",
+    "text": "I can access websites if I type the IP directly, but domain names fail.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_029",
+    "text": "Adapter driver error causing single device Wi-Fi connectivity failure.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_006",
+    "text": "IP address conflict warning popped up and my internet immediately disconnected.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_024",
+    "text": "High ping times and jitter detected on upstream broadband gateway.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_028",
+    "text": "Getting dns probe finished nxdomain on every standard web search.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_002",
+    "text": "Router WAN light is red, browsing is not working on any device.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_011",
+    "text": "Neighbor and I both have red LOS lights on our fiber boxes since 2 PM.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "isp_outage_003",
+    "text": "Complete fiber outage in our area, PON light is off and LOS light is blinking red.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "isp_outage_002",
+    "text": "Fiber line outside was snapped by construction workers, LOS light is blinking red.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "wifi_signal_issue_001",
+    "text": "Wifi signal is super weak in the balcony, only 1 bar and disconnects.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_012",
+    "text": "Fiber PON light is completely off and LOS is red, multiple residents affected.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "dns_resolution_014",
+    "text": "DNS probe finished no internet error on all web browsers.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_029",
+    "text": "DHCP Discover packets receiving no DHCPOffer from local router.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_000",
+    "text": "My internet went completely dead 10 minutes ago. The router internet light is off.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_029",
+    "text": "Wifi signal is strong but opening any site says you are not connected to the internet.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_016",
+    "text": "Client wireless adapter disabled in Device Manager, cannot see SSID.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_002",
+    "text": "Server IP address could not be found error on every website I visit.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_015",
+    "text": "Router lost WAN IP address, internet led is solid amber.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_023",
+    "text": "Web address translation failure, unable to resolve server IP addresses.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_022",
+    "text": "Only my desktop PC has no network connection, household devices work.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "router_wan_issue_009",
+    "text": "Wifi connects fine with full bars but says No Internet Access on all laptops.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_013",
+    "text": "DNS resolution issue on my PC, internet works for background apps.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_028",
+    "text": "Default gateway is blank and IP address starts with 169.254 autoconfig.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_007",
+    "text": "Video meetings keep freezing every minute, speed test shows high latency.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_007",
+    "text": "Signal strength is very low in the master bedroom, internet keeps disconnecting.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_015",
+    "text": "Domain Name System failed to resolve hostnames, direct numeric IP works.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_009",
+    "text": "Device says Obtaining IP address forever and never finishes connecting.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_014",
+    "text": "Broadband connection died. Tried restarting the black box, still no internet.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_022",
+    "text": "Our home wifi network has no connection to the wider internet today.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_004",
+    "text": "WhatsApp calls and messages work but no browser can open any web page.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_025",
+    "text": "Whole house has no internet, router status page says disconnected from gateway.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_019",
+    "text": "Severe wifi attenuation and dead zones in the upstairs master bedroom.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_010",
+    "text": "Phone connects to home Wi-Fi without issue, but work laptop refuses to connect.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_004",
+    "text": "My phone keeps dropping the wifi connection in the kitchen.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_023",
+    "text": "Network adapter has self-assigned 169.254 APIPA IP address.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_015",
+    "text": "Optical loss of signal detected on fiber terminal, LOS LED blinking bright red.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "wifi_signal_issue_009",
+    "text": "Connection is unstable in the back room, drops whenever a door is closed.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_023",
+    "text": "No optical signal received from ISP central office, red alarm blinking.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "device_connectivity_001",
+    "text": "My laptop can't find our home Wi-Fi network even though my roommate's phone is connected.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_025",
+    "text": "Overhead fiber drop wire broken by falling tree branch, LOS light red.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "isp_outage_000",
+    "text": "Red LOS light blinking on my fiber box since 30 mins. Neighbor says theirs is down too.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "wifi_signal_issue_011",
+    "text": "Wifi signal constantly fluctuates from full bars to zero bars.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_000",
+    "text": "Chrome says DNS_PROBE_FINISHED_BAD_CONFIG on all websites, but WhatsApp messages send fine.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_027",
+    "text": "Nameserver lookup failure, browser cannot find server IP address.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_023",
+    "text": "My tablet loses wireless signal whenever I move 20 feet away from router.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_005",
+    "text": "ONT shows red blinking LOS LED, reboot did not help at all.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "dhcp_ip_configuration_007",
+    "text": "Ipconfig shows autoconfiguration IPv4 starting with 169.254 and no gateway.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_022",
+    "text": "Optical terminal PON LED off, LOS alarm red, regional ISP breakdown.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "router_wan_issue_028",
+    "text": "Internet access disappeared, restarting the router did not restore connection.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_020",
+    "text": "Sudden loss of internet connectivity across all ethernet and wireless ports.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_021",
+    "text": "Ipconfig /renew fails with unable to contact your DHCP server error.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_019",
+    "text": "Duplicate IP detected on local network, connection dropped due to IP conflict.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_017",
+    "text": "Stuck on obtaining IP address loop when connecting to local home network.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_022",
+    "text": "Packet burst loss icon appears continuously during online video calls.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_000",
+    "text": "My iPhone and iPad connect to Wi-Fi fine, but my Dell work laptop won't connect to our home network.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_001",
+    "text": "I can ping 8.8.8.8 successfully but cannot open google.com or youtube.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_013",
+    "text": "Smart TV connects to Netflix fine, but my laptop says Wi-Fi has no internet.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_000",
+    "text": "My zoom calls keep freezing and voice is robotic, speed test shows 40% packet loss.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_010",
+    "text": "Construction truck cut the overhead fiber wire outside, router has blinking red LOS.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_012",
+    "text": "Continuous ping test shows request timed out every fourth packet.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_016",
+    "text": "Getting ERR_NAME_RESOLUTION_FAILED across Chrome, Firefox, and Edge.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_022",
+    "text": "DNS cache seems corrupted, websites fail with name not resolved.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_026",
+    "text": "Local DNS server 192.168.1.1 is refusing port 53 query packets.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_024",
+    "text": "Apps that use direct IP work, but web browsing fails with DNS error.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_015",
+    "text": "Wifi range cannot penetrate the thick concrete wall between rooms.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_025",
+    "text": "My phone connects without issue, but my smart TV says connection failed.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_005",
+    "text": "Ping spikes terribly in Valorant and CS2, unplayable latency.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_018",
+    "text": "Wifi signal drops from 5 bars to 1 bar in the corner office.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_022",
+    "text": "Static IP misconfiguration or DHCP pool exhaustion preventing connection.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_029",
+    "text": "Wifi signal is too faint to stream video in the second floor bedroom.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_021",
+    "text": "Browser reports could not resolve host name for any typed URL.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_002",
+    "text": "Internet is extremely laggy and videos keep buffering constantly.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_009",
+    "text": "Our entire colony broadband is down, optical loss of signal light is flashing red.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "dhcp_ip_configuration_004",
+    "text": "Ethernet says connected but no valid IP configuration found.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_006",
+    "text": "5GHz wifi is not reaching my study room, keeps switching back and forth.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_025",
+    "text": "Wifi beacon signal keeps dropping and reappearing in the bedroom.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "router_wan_issue_005",
+    "text": "My broadband stopped working suddenly, all devices show connected without internet.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_001",
+    "text": "My computer says Unidentified Network and cannot get an IP address.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_017",
+    "text": "Nslookup fails with query timed out to default DNS resolver.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_014",
+    "text": "Very weak reception on 5G network upstairs, 2.4G works a little bit.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_019",
+    "text": "Severe buffering and video stutter caused by high jitter and lost packets.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_019",
+    "text": "All lights on router are green except Internet which is totally off.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_010",
+    "text": "My DNS seems stuck, ping 1.1.1.1 works but pinging google.com fails.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_010",
+    "text": "Speed test shows high packet loss and jitter even though download speed says 50 Mbps.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_002",
+    "text": "When I move away from the hall, my laptop loses the wifi connection completely.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_016",
+    "text": "Windows reports ethernet does not have a valid IP configuration.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_009",
+    "text": "All browsers give err_name_not_resolved on every single link.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_026",
+    "text": "Low RSSI signal strength causing constant wireless packet drops.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "router_wan_issue_024",
+    "text": "The internet light on my Netgear router turned red after a storm.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_010",
+    "text": "My fiber router stopped working after a power cut, internet globe light is red.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_007",
+    "text": "My PC network adapter disappeared from network settings after a Windows update.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_010",
+    "text": "Only getting 1 bar of wifi on the first floor while ground floor is fine.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "router_wan_issue_021",
+    "text": "Modem WAN cable is plugged in firmly but internet light never turns green.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_024",
+    "text": "Widespread internet outage in our district, optical light is completely dead.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "router_wan_issue_007",
+    "text": "No internet connection at all, rebooting did not bring the green light back.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_001",
+    "text": "Online gaming ping is spiking from 20ms to 400ms every 30 seconds.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_006",
+    "text": "Broadband cable on our street was severed, no internet on any line.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_008",
+    "text": "Experiencing massive jitter and 30% packet loss during evening hours.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_008",
+    "text": "Internet is completely dead. Router seems on but WAN LED is totally dead.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_003",
+    "text": "Wifi range is terrible after moving the router behind the TV cabinet.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_005",
+    "text": "Browser says DNS lookup failed for every url I type.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_026",
+    "text": "Laptop Wi-Fi switch turned off and adapter won't enable.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_004",
+    "text": "Voice chat is cutting in and out constantly, games say packet burst loss.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_006",
+    "text": "Router internet light is blinking orange and web pages keep timing out.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_026",
+    "text": "IP conflict on home network between smart TV and laptop.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_006",
+    "text": "Pages take 20 seconds to begin loading due to heavy packet dropping.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_012",
+    "text": "Internet connection dropped all of a sudden. Router internet light turned off.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_017",
+    "text": "Constant intermittent disconnects on wireless devices located far from router.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_017",
+    "text": "Ping fluctuation between 15ms and 600ms making connection very erratic.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_008",
+    "text": "Blinking red LOS indicator on fiber modem, no light signal coming from cable.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_015",
+    "text": "High round-trip time latency and frequent dropped packets on connection.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_016",
+    "text": "Wireless signal drops to poor whenever I walk past the hallway.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_024",
+    "text": "Intermittent wireless drops due to physical distance and wall obstruction.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_016",
+    "text": "Physical fiber cut confirmed down the street, no optical power reaching ONT.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "device_connectivity_009",
+    "text": "Wi-Fi toggle in Windows is grayed out and won't turn on.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_014",
+    "text": "Device specific Wi-Fi issue, other phones browse with no problem.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_028",
+    "text": "Weak wifi reception upstairs, frequent disconnection from home network.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_020",
+    "text": "No default gateway assigned by DHCP server, autoconfiguration IP active.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_020",
+    "text": "Loss of signal light red on fiber terminal, rebooting does not restore light.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "router_wan_issue_003",
+    "text": "Net is down since morning. Power light is on but internet symbol is blank.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_020",
+    "text": "Laptop states can't connect to this network while phones connect normally.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "packet_loss_latency_025",
+    "text": "Video meeting video freezes while audio delays by 5 seconds due to lag.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_025",
+    "text": "Windows network diagnostics reports Wi-Fi doesn't have a valid IP configuration.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_003",
+    "text": "Windows says Can't connect to this network whenever I try to join my home Wi-Fi.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_012",
+    "text": "Why does WhatsApp work on my phone wifi but no websites open in Safari?",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_026",
+    "text": "DSL sync light is solid but internet light is unlit.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_017",
+    "text": "All other household phones are browsing fine, only this laptop won't connect.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_020",
+    "text": "Devices constantly disconnect and reconnect to wireless SSID.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_027",
+    "text": "Network credentials rejected by home router on this single device.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "router_wan_issue_013",
+    "text": "All home devices say connected to wifi but nothing has internet access.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_014",
+    "text": "DHCP lookup failed on my smart TV and laptop.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_018",
+    "text": "Internet icon has a yellow triangle, status says connected, secured, no internet.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_011",
+    "text": "Can't open any website, my wifi icon has an exclamation mark.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_027",
+    "text": "Network connection has heavy jitter and 35 percent packet loss.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_029",
+    "text": "Red LOS indicator on fiber modem, confirmed neighborhood-wide outage.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_014",
+    "text": "Video buffers continuously and speed test ping is over 300ms.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_017",
+    "text": "PPPoE authentication failed on router, globe icon is unlit.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_020",
+    "text": "Heavy packet loss on broadband line, 30 percent packets timed out.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_021",
+    "text": "2.4GHz wifi is crowded with neighbor networks and drops connection.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_007",
+    "text": "DNS server not responding message in Windows network troubleshooter.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_004",
+    "text": "All neighbors on our floor lost internet connection at the exact same time.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  }
+]

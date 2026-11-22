@@ -1,0 +1,114 @@
+[
+  {
+    "id": "teleqna_001",
+    "question": "What is the primary function of DHCP in an Internet Protocol (IP) access network?",
+    "options": [
+      "Dynamic IP address assignment to network hosts",
+      "Encrypting DNS queries",
+      "Direct modulation of optical fiber",
+      "Physical port switching"
+    ],
+    "answer": "Dynamic IP address assignment to network hosts",
+    "explanation": "Dynamic Host Configuration Protocol (DHCP) automatically assigns IP addresses and other network configuration parameters (subnet mask, default gateway, DNS servers) to client devices.",
+    "category": "dhcp_ip_configuration",
+    "source": "TeleQnA / IETF RFC 2131"
+  },
+  {
+    "id": "teleqna_002",
+    "question": "When a router WAN interface is down while the LAN interface is active, what symptom will a connected client experience?",
+    "options": [
+      "Client associates with local Wi-Fi and gets local IP, but internet requests fail with no route or DNS timeout",
+      "Client Wi-Fi adapter disables automatically",
+      "Local gateway IP cannot be reached via ping",
+      "Device powers off"
+    ],
+    "answer": "Client associates with local Wi-Fi and gets local IP, but internet requests fail with no route or DNS timeout",
+    "explanation": "If the WAN port has lost upstream carrier or PPPoE handshake, local LAN and Wi-Fi remain active, giving the common 'Connected, no internet' indicator.",
+    "category": "router_wan_issue",
+    "source": "TeleQnA / Networking Theory"
+  },
+  {
+    "id": "teleqna_003",
+    "question": "What is the consequence of severe packet loss exceeding 25% on a customer broadband connection?",
+    "options": [
+      "High TCP retransmissions, stalling web pages, and robotic voice or disconnects in VoIP calls",
+      "Doubled connection bandwidth",
+      "Immediate hardware shutdown of the optical network terminal (ONT)",
+      "Automatic IP version change"
+    ],
+    "answer": "High TCP retransmissions, stalling web pages, and robotic voice or disconnects in VoIP calls",
+    "explanation": "High packet loss degrades TCP throughput drastically due to congestion window collapse and causes jitter and buffering in real-time UDP streams.",
+    "category": "packet_loss_latency",
+    "source": "TeleQnA / Quality of Service"
+  },
+  {
+    "id": "teleqna_004",
+    "question": "Why does a 5GHz Wi-Fi signal exhibit shorter coverage range and higher wall attenuation compared to a 2.4GHz Wi-Fi signal?",
+    "options": [
+      "Higher frequency radio waves suffer greater absorption by obstacles and free-space path loss",
+      "5GHz Wi-Fi transmits at zero power",
+      "2.4GHz uses light waves instead of RF",
+      "5GHz does not support OFDM"
+    ],
+    "answer": "Higher frequency radio waves suffer greater absorption by obstacles and free-space path loss",
+    "explanation": "Higher frequencies have shorter wavelengths that attenuate more rapidly when traversing solid materials such as concrete and drywall.",
+    "category": "wifi_signal_issue",
+    "source": "TeleQnA / IEEE 802.11 Standards"
+  },
+  {
+    "id": "teleqna_005",
+    "question": "What does an APIPA address starting with 169.254.x.x indicate on a Windows client device?",
+    "options": [
+      "The client failed to obtain an IP lease from a DHCP server and self-assigned an Automatic Private IP Address",
+      "The ISP has granted Gigabit fiber speeds",
+      "The device is under a firewall attack",
+      "The router is operating in bridge mode"
+    ],
+    "answer": "The client failed to obtain an IP lease from a DHCP server and self-assigned an Automatic Private IP Address",
+    "explanation": "When DHCP discovery requests receive no offer, Windows automatically configures an address in the 169.254.0.0/16 range, preventing WAN routing.",
+    "category": "dhcp_ip_configuration",
+    "source": "TeleQnA / RFC 3927"
+  },
+  {
+    "id": "teleqna_006",
+    "question": "Which protocol translates human-readable domain names into numerical IP addresses?",
+    "options": [
+      "Domain Name System (DNS)",
+      "Address Resolution Protocol (ARP)",
+      "Simple Network Management Protocol (SNMP)",
+      "File Transfer Protocol (FTP)"
+    ],
+    "answer": "Domain Name System (DNS)",
+    "explanation": "DNS acts as the phonebook of the Internet, resolving domain names (like example.com) to IPv4/IPv6 addresses.",
+    "category": "dns_resolution",
+    "source": "TeleQnA / IETF RFC 1035"
+  },
+  {
+    "id": "teleqna_007",
+    "question": "What is the primary indicator of an upstream ISP regional outage rather than a customer-premises equipment (CPE) failure?",
+    "options": [
+      "Multiple customers in the same optical line terminal (OLT) or DSLAM node reporting LOS/loss of carrier simultaneously",
+      "One customer's phone having Wi-Fi toggled off",
+      "A loose LAN cable between a PC and printer",
+      "A cracked screen on the customer's phone"
+    ],
+    "answer": "Multiple customers in the same optical line terminal (OLT) or DSLAM node reporting LOS/loss of carrier simultaneously",
+    "explanation": "ISP-level outages affect area backbones, upstream fiber cuts, or central office equipment, impacting multiple subscribers across a geographical cluster.",
+    "category": "isp_outage",
+    "source": "TeleQnA / ISP Operations"
+  },
+  {
+    "id": "teleqna_008",
+    "question": "What happens when an IP address conflict occurs on a local area network?",
+    "options": [
+      "Two devices share the same IP, causing intermittent connection dropping and ARP packet conflicts for both hosts",
+      "The router automatically triples its speed",
+      "The devices merge their hard drives",
+      "The Wi-Fi password changes"
+    ],
+    "answer": "Two devices share the same IP, causing intermittent connection dropping and ARP packet conflicts for both hosts",
+    "explanation": "If two devices claim the same IP, switches and routers receive competing ARP replies, causing traffic to be routed haphazardly to whichever device replied last.",
+    "category": "dhcp_ip_configuration",
+    "source": "TeleQnA / Network Engineering"
+  }
+]

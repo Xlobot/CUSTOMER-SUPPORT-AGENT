@@ -1,0 +1,130 @@
+{
+  "model_name": "NetCare-Domain-Adapted-Classifier",
+  "foundation_architecture": "Qwen2.5-3B-Instruct / Calibrated Hybrid Classifier",
+  "checkpoint_epoch": 5,
+  "test_samples": 21,
+  "test_accuracy": 100.0,
+  "target_accuracy": 95.5,
+  "target_met": true,
+  "macro_precision": 1.0,
+  "macro_recall": 1.0,
+  "macro_f1": 1.0,
+  "classes": [
+    "device_connectivity",
+    "dhcp_ip_configuration",
+    "dns_resolution",
+    "isp_outage",
+    "packet_loss_latency",
+    "router_wan_issue",
+    "wifi_signal_issue"
+  ],
+  "confusion_matrix": [
+    [
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ]
+  ],
+  "per_class_metrics": {
+    "device_connectivity": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 4
+    },
+    "dhcp_ip_configuration": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 5
+    },
+    "dns_resolution": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 2
+    },
+    "isp_outage": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 4
+    },
+    "packet_loss_latency": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 3
+    },
+    "router_wan_issue": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 1
+    },
+    "wifi_signal_issue": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 2
+    }
+  }
+}

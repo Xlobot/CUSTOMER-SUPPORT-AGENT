@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Model Performance & Evaluation — NetCare AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="dashboard-page">
+  <!-- ═══════════════════════════════════════════ HEADER ══ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="6" fill="#1E293B"/>
+            <path d="M5 14H9L12 8L16 20L19 14H23" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <span class="logo-title">NetCare<span class="logo-ai">AI</span></span>
+          <span class="logo-sub">Model Evaluation & Benchmark Analytics</span>
+        </div>
+      </div>
+      <div class="header-badges">
+        <a href="/" class="btn btn-sm btn-header">Customer Support</a>
+        <a href="/monitoring" class="btn btn-sm btn-header">Server Console</a>
+        <span id="model-status-badge" class="badge badge-active"><span class="status-dot"></span> Checkpoint Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ MAIN CONTENT ══ -->
+  <main class="main-content" style="max-width:1300px;margin:24px auto;padding:0 24px;">
+    
+    <!-- Top Hero Section -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:16px;">
+      <div>
+        <h1 style="font-size:20px;font-weight:600;margin:0 0 4px 0;color:var(--text-primary);letter-spacing:-0.2px;">Foundation Model Evaluation</h1>
+        <p style="color:var(--text-secondary);margin:0;font-size:13px;">Measured metrics on independent held-out test data covering all five agent responsibilities.</p>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-primary" onclick="loadPerformanceData()" style="padding:7px 14px;font-size:12px;">Refresh Metrics</button>
+      </div>
+    </div>
+
+    <!-- Summary KPI Cards -->
+    <div class="stats-grid" style="grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:16px;margin-bottom:20px;">
+      <div class="stat-card">
+        <div class="stat-label">Test accuracy</div>
+        <div id="metric-accuracy" class="stat-value tabular" style="color:var(--positive);">—</div>
+        <div class="stat-sub" id="target-status">Target: ≥ 95.5%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Macro F1-score</div>
+        <div id="metric-f1" class="stat-value tabular" style="color:var(--accent);">—</div>
+        <div class="stat-sub">Across 7 category splits</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Precision / recall</div>
+        <div id="metric-precision-recall" class="stat-value tabular" style="font-size:24px;color:#8B5CF6;">—</div>
+        <div class="stat-sub" id="metric-pr-sub">Balanced evaluation</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active architecture</div>
+        <div id="metric-model" style="font-size:15px;font-weight:600;color:var(--text-primary);font-family:'JetBrains Mono',monospace;">Qwen2.5-3B-Instruct</div>
+        <div class="stat-sub" id="metric-epochs">5 Epochs • Checkpoint Active</div>
+      </div>
+    </div>
+
+    <!-- Charts Row: Loss Curves & Accuracy by Epoch -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+      <div class="card">
+        <div class="card-header">Training & Validation Loss by Epoch</div>
+        <div style="height:260px;position:relative;">
+          <canvas id="lossChart"></canvas>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">Validation Accuracy & Macro F1 by Epoch</div>
+        <div style="height:260px;position:relative;">
+          <canvas id="accuracyChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confusion Matrix & Dataset Breakdown -->
+    <div style="display:grid;grid-template-columns:1.3fr 0.7fr;gap:16px;margin-bottom:20px;">
+      <!-- Confusion Matrix Card -->
+      <div class="card">
+        <div class="card-header">Confusion Matrix (Held-Out Test Set)</div>
+        <p class="hint">Rows represent ground-truth categories; columns represent model predictions.</p>
+        <div id="confusion-matrix-container" style="overflow-x:auto;">
+          <table id="confusion-matrix-table" class="data-table log-table" style="font-family:'JetBrains Mono',monospace;">
+            <!-- Rendered by JS -->
+          </table>
+        </div>
+      </div>
+
+      <!-- Dataset Provenance & Distribution Card -->
+      <div class="card">
+        <div class="card-header">Dataset Provenance & Partitions</div>
+        <div id="dataset-stats-list" style="font-size:12px;line-height:1.6;color:var(--text-secondary);">
+          <div style="border-bottom:1px solid var(--border-subtle);padding:6px 0;"><strong style="color:var(--text-primary);">TeleQnA:</strong> Telecom & networking Q&A (CC BY-NC-SA 4.0)</div>
+          <div style="border-bottom:1px solid var(--border-subtle);padding:6px 0;"><strong style="color:var(--text-primary);">Stack Exchange:</strong> SuperUser & NetworkEngineering (CC BY-SA 4.0)</div>
+          <div style="border-bottom:1px solid var(--border-subtle);padding:6px 0;"><strong style="color:var(--text-primary);">Microsoft Docs:</strong> Windows Client Networking Troubleshooting</div>
+          <div style="border-bottom:1px solid var(--border-subtle);padding:6px 0;"><strong style="color:var(--text-primary);">Curated Domain:</strong> Multi-turn realistic support dialogues</div>
+          <div style="margin-top:12px;padding:10px;background:var(--bg-sunken);border-radius:var(--radius-control);border:1px solid var(--border);font-size:11px;">
+            <div><strong>Multi-Agent SFT Samples:</strong> <span id="stat-sft-total" class="tabular">1050</span></div>
+            <div><strong>Intent Classification Samples:</strong> <span id="stat-cls-total" class="tabular">210</span></div>
+            <div><strong>Partition:</strong> 80% Train, 10% Val, 10% Held-Out Test</div>
+            <div><strong>Data Leakage Prevention:</strong> Enforced by session hash</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Five Specialized Agents Individual Evaluations -->
+    <div class="card" style="margin-bottom:24px;">
+      <div class="card-header">Specialized Agent Verification Scorecard</div>
+      <p class="hint">Independent evaluation scores for each agent's domain responsibilities.</p>
+      
+      <div id="agent-eval-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <script src="/static/performance.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+[
+  {
+    "id": "dhcp_ip_configuration_018",
+    "text": "DHCP lease timed out and router assigned an invalid 169.254 IP.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_027",
+    "text": "Can reach router setup page 192.168.1.1 but status shows WAN Disconnected.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_026",
+    "text": "Multiple homes in the street have red blinking LOS on fiber routers.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "device_connectivity_018",
+    "text": "Windows network adapter driver crashed, no Wi-Fi networks found.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "wifi_signal_issue_022",
+    "text": "Wifi coverage is uneven, front room has strong signal but back room has none.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_028",
+    "text": "One computer in the house cannot connect to the internet, others are fine.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_010",
+    "text": "Network troubleshooter says DHCP is not enabled for Wi-Fi adapter.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_018",
+    "text": "Can ping public DNS 8.8.8.8 and 1.1.1.1 but cannot resolve google.com.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_002",
+    "text": "Getting Windows error: Windows has detected an IP address conflict on your network.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_012",
+    "text": "Only one laptop in our home is unable to join the Wi-Fi network.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_008",
+    "text": "Wi-Fi connected but status shows No IP assigned, limited connectivity.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_025",
+    "text": "DNS_PROBE_FINISHED_NO_INTERNET when browsing, direct IP ping responds.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_018",
+    "text": "PON light went dark and red LOS alarm light started flashing on modem.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "wifi_signal_issue_012",
+    "text": "My laptop drops the home wifi every 10 minutes and says network out of range.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_007",
+    "text": "ISP backbone seems down, red light on optical terminal and neighbors confirmed down.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_029",
+    "text": "Broadband ping is unstable with intermittent packet timeouts.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "packet_loss_latency_026",
+    "text": "Continuous packet dropouts on internet connection, high ping latency.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_003",
+    "text": "My laptop is assigned 169.254.x.x and default gateway is completely blank.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_001",
+    "text": "Red optical light on the router and our entire apartment society has no internet.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_016",
+    "text": "Voice on Microsoft Teams sounds robotic due to severe packet loss.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_008",
+    "text": "Every device connects except my gaming PC which says unable to connect.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  }
+]

@@ -1,0 +1,254 @@
+[
+  {
+    "id": "netcare_dia_001",
+    "customer_query": "My internet went completely dead 10 minutes ago. The router internet light is off.",
+    "issue_category": "router_wan_issue",
+    "severity": "Medium",
+    "coordinator_routing": {
+      "intent": "report_outage_or_disconnection",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "Customer reports physical WAN light off; requires diagnosis before troubleshooting."
+    },
+    "diagnosis_output": {
+      "root_cause": "router_wan_disconnected",
+      "confidence": 0.92,
+      "severity": "Medium",
+      "findings": "WAN LED unlit; ping to default gateway succeeds locally but upstream route is down.",
+      "recommended_next_agent": "Troubleshooting Agent"
+    },
+    "troubleshooting_output": {
+      "action": "restart_router",
+      "instructions": "Please perform a 30-second power cycle on your router: 1. Unplug the black power cable from the back. 2. Wait 30 seconds. 3. Plug it back in and wait 2 minutes for the WAN LED to turn solid green.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "still not working",
+      "reflection": "Power cycle failed to restore WAN link. Moving to step 2: physical cable verification.",
+      "next_step": "check_cables",
+      "escalate": false
+    },
+    "escalation_output": {
+      "ticket_reason": "Router WAN port remains down after power cycle and cable reseat.",
+      "priority": "Medium",
+      "sla_hours": 24
+    }
+  },
+  {
+    "id": "netcare_dia_002",
+    "customer_query": "My wifi keeps cutting out every 5 mins when I am sitting in the bedroom upstairs.",
+    "issue_category": "wifi_signal_issue",
+    "severity": "Low",
+    "coordinator_routing": {
+      "intent": "intermittent_wifi_drop",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "Signal degradation specific to a physical location indicates RF attenuation or band steering issue."
+    },
+    "diagnosis_output": {
+      "root_cause": "wifi_attenuation_distance",
+      "confidence": 0.88,
+      "severity": "Low",
+      "findings": "Frequent packet drops and high RSSI attenuation between ground floor router and second floor client.",
+      "recommended_next_agent": "Troubleshooting Agent"
+    },
+    "troubleshooting_output": {
+      "action": "switch_to_2ghz_or_reposition",
+      "instructions": "1. If your router has separate 2.4GHz and 5GHz networks, connect to the 2.4GHz network in the bedroom (it penetrates walls much better). 2. Ensure router is elevated off the floor and away from thick concrete walls.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "it worked, steady on 2.4ghz now",
+      "reflection": "Customer confirmed stable connection on 2.4GHz band. Issue successfully resolved.",
+      "next_step": "close_case",
+      "escalate": false
+    },
+    "escalation_output": null
+  },
+  {
+    "id": "netcare_dia_003",
+    "customer_query": "Chrome says DNS_PROBE_FINISHED_BAD_CONFIG on all websites, but WhatsApp messages send fine.",
+    "issue_category": "dns_resolution",
+    "severity": "Medium",
+    "coordinator_routing": {
+      "intent": "dns_lookup_failure",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "WhatsApp functioning while browser fails is classic signature of broken DNS with working IP routing."
+    },
+    "diagnosis_output": {
+      "root_cause": "dns_resolver_unresponsive",
+      "confidence": 0.95,
+      "severity": "Medium",
+      "findings": "Direct IP reachability intact (e.g. 8.8.8.8 reachable), but port 53 DNS query to router gateway timed out.",
+      "recommended_next_agent": "Troubleshooting Agent"
+    },
+    "troubleshooting_output": {
+      "action": "flush_and_set_public_dns",
+      "instructions": "1. Press Win+R, type cmd, and press Enter. 2. Type `ipconfig /flushdns` and hit Enter. 3. Set Windows DNS servers manually to 8.8.8.8 (Primary) and 1.1.1.1 (Secondary).",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "websites are opening immediately now thanks!",
+      "reflection": "DNS cache flush and public resolver assignment resolved browser lookup failures.",
+      "next_step": "close_case",
+      "escalate": false
+    },
+    "escalation_output": null
+  },
+  {
+    "id": "netcare_dia_004",
+    "customer_query": "Laptop connected to wifi with an exclamation mark, says No Internet and IP is 169.254.88.12",
+    "issue_category": "dhcp_ip_configuration",
+    "severity": "Medium",
+    "coordinator_routing": {
+      "intent": "dhcp_lease_failure",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "169.254 prefix is an APIPA address confirming DHCP lease failure."
+    },
+    "diagnosis_output": {
+      "root_cause": "dhcp_pool_exhaustion_or_nack",
+      "confidence": 0.96,
+      "severity": "Medium",
+      "findings": "Client received no DHCP Offer from gateway; defaulted to APIPA 169.254.0.0/16.",
+      "recommended_next_agent": "Troubleshooting Agent"
+    },
+    "troubleshooting_output": {
+      "action": "renew_dhcp_lease",
+      "instructions": "1. Open Command Prompt as Administrator. 2. Run `ipconfig /release` to clear old state. 3. Run `ipconfig /renew` to request a fresh IP from the router. 4. If renew fails, power cycle the router to reset the DHCP server daemon.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "worked! Got 192.168.1.15 now",
+      "reflection": "DHCP lease renewed successfully; valid IP and gateway assigned.",
+      "next_step": "close_case",
+      "escalate": false
+    },
+    "escalation_output": null
+  },
+  {
+    "id": "netcare_dia_005",
+    "customer_query": "Red LOS light blinking on my fiber box since 30 mins. Neighbor says theirs is down too.",
+    "issue_category": "isp_outage",
+    "severity": "High",
+    "coordinator_routing": {
+      "intent": "isp_backbone_outage",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "Blinking LOS and multi-premises impact indicates optical distribution network or OLT outage."
+    },
+    "diagnosis_output": {
+      "root_cause": "optical_loss_of_signal_isp_outage",
+      "confidence": 0.98,
+      "severity": "High",
+      "findings": "Optical power level below -35 dBm (LOS blinking). Upstream feeder cable disruption detected in sector.",
+      "recommended_next_agent": "Escalation Agent"
+    },
+    "troubleshooting_output": {
+      "action": "check_service_status",
+      "instructions": "Optical loss of signal cannot be resolved through customer premises equipment resets. Please keep fiber cable unbent while field technicians repair the optical feeder.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "understood, please send tech",
+      "reflection": "Physical fiber failure confirmed; immediate ticket dispatch required.",
+      "next_step": "escalate",
+      "escalate": true
+    },
+    "escalation_output": {
+      "ticket_reason": "Sector fiber outage (LOS blinking red). Field fiber restoration required.",
+      "priority": "High",
+      "sla_hours": 4
+    }
+  },
+  {
+    "id": "netcare_dia_006",
+    "customer_query": "My zoom calls keep freezing and voice is robotic, speed test shows 40% packet loss.",
+    "issue_category": "packet_loss_latency",
+    "severity": "Medium",
+    "coordinator_routing": {
+      "intent": "packet_loss_jitter",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "Severe real-time UDP degradation indicates physical line noise or duplex mismatch."
+    },
+    "diagnosis_output": {
+      "root_cause": "upstream_packet_loss_noise",
+      "confidence": 0.9,
+      "severity": "Medium",
+      "findings": "40% packet loss observed on external hops; gateway latency remains normal at 2ms.",
+      "recommended_next_agent": "Troubleshooting Agent"
+    },
+    "troubleshooting_output": {
+      "action": "test_direct_ethernet_and_restart",
+      "instructions": "1. Connect directly to router via Ethernet cable to rule out Wi-Fi interference. 2. Disconnect high-bandwidth background downloads/torrents. 3. Restart the router to clear internal packet buffer overruns.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "packet loss dropped to 0% after closing torrents and restarting",
+      "reflection": "Bufferbloat and saturation from background downloads eliminated; packet loss resolved.",
+      "next_step": "close_case",
+      "escalate": false
+    },
+    "escalation_output": null
+  },
+  {
+    "id": "netcare_dia_007",
+    "customer_query": "My iPhone and iPad connect to Wi-Fi fine, but my Dell work laptop won't connect to our home network.",
+    "issue_category": "device_connectivity",
+    "severity": "Low",
+    "coordinator_routing": {
+      "intent": "single_device_wifi_failure",
+      "routed_agent": "Diagnosis Agent",
+      "reason": "Multi-device isolation proves router and ISP are healthy; Dell laptop network stack or driver fault."
+    },
+    "diagnosis_output": {
+      "root_cause": "client_adapter_wlan_profile_cache",
+      "confidence": 0.93,
+      "severity": "Low",
+      "findings": "Stale 802.11 security handshake credentials or driver power-saving bug on Dell client adapter.",
+      "recommended_next_agent": "Troubleshooting Agent"
+    },
+    "troubleshooting_output": {
+      "action": "forget_and_reconnect_wifi",
+      "instructions": "1. Go to Windows Settings > Network & Internet > Wi-Fi > Manage Known Networks. 2. Select your home Wi-Fi and click 'Forget'. 3. Turn Wi-Fi off and on, select the network, and enter the password fresh.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "it reconnected instantly!",
+      "reflection": "Profile cache cleared and fresh WPA2/WPA3 handshake established.",
+      "next_step": "close_case",
+      "escalate": false
+    },
+    "escalation_output": null
+  },
+  {
+    "id": "netcare_dia_008",
+    "customer_query": "Internet is still dead. I already restarted the router three times, checked all cables, and reset everything.",
+    "issue_category": "router_wan_issue",
+    "severity": "High",
+    "coordinator_routing": {
+      "intent": "repeated_troubleshooting_failure",
+      "routed_agent": "Escalation Agent",
+      "reason": "Customer has already completed all standard Tier 1 remediation steps without success."
+    },
+    "diagnosis_output": {
+      "root_cause": "persistent_hardware_or_port_failure",
+      "confidence": 0.89,
+      "severity": "High",
+      "findings": "Multiple Tier 1 remediation attempts exhausted. Persistent WAN layer failure.",
+      "recommended_next_agent": "Escalation Agent"
+    },
+    "troubleshooting_output": {
+      "action": "escalate_to_technician",
+      "instructions": "Since you have already performed all standard resets and cable checks, we will not ask you to repeat them. Let us schedule a priority technician inspection.",
+      "disruptive": false
+    },
+    "monitoring_output": {
+      "feedback": "yes please send someone",
+      "reflection": "Remediation loop avoided; automated escalation approved.",
+      "next_step": "escalate",
+      "escalate": true
+    },
+    "escalation_output": {
+      "ticket_reason": "Repeated customer-side troubleshooting failed. On-site CPE or port inspection required.",
+      "priority": "High",
+      "sla_hours": 12
+    }
+  }
+]

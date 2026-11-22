@@ -1,0 +1,6 @@
+Title: Diagnosing DNS Client Resolution Failures
+Section: DNS Query Timeouts and Server Failures
+Category: dns_resolution
+Source: Microsoft Learn / Windows TSS Networking Scenarios
+
+When DNS resolution fails, applications report DNS_PROBE_FINISHED_NXDOMAIN or SERVER_FAILED. Use `nslookup google.com` to isolate the responding DNS server. If the primary DNS server fails to respond, query a known resolver directly: `nslookup google.com 8.8.8.8`. If the direct query succeeds while the router DNS fails, configure public DNS servers statically in IPv4 adapter properties.

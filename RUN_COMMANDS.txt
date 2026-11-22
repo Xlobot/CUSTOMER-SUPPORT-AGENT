@@ -1,0 +1,65 @@
+================================================================================
+                    NETCARE AI -- COMMANDS & RUN GUIDE
+================================================================================
+
+PROJECT LOCATION:
+  c:\Users\dell\Desktop\CUSTOMER SUPPORT AGENT
+
+--------------------------------------------------------------------------------
+1. HOW TO RUN THE APPLICATION (Step-by-Step)
+--------------------------------------------------------------------------------
+
+Step 1: Open PowerShell or Command Prompt
+  Press Win + R, type powershell, and press Enter.
+
+Step 2: Navigate to the project directory
+  cd 'c:\Users\dell\Desktop\CUSTOMER SUPPORT AGENT'
+
+Step 3: Activate the virtual environment
+  .\venv\Scripts\activate
+
+Step 4: Start the Flask application
+  python app.py
+
+Step 5: Open your browser
+  Go to: http://localhost:5000
+  (or http://127.0.0.1:5000)
+
+--------------------------------------------------------------------------------
+2. HOW TO RUN AUTOMATED TESTS (66 Tests, 100% Pass Rate)
+--------------------------------------------------------------------------------
+
+Run all unit and integration tests:
+  python test_netcare.py
+
+--------------------------------------------------------------------------------
+3. HOW TO RESET DEMO DATA
+--------------------------------------------------------------------------------
+
+Clears test chat sessions, tickets, and cases (preserves customer accounts):
+  python -c 'import database; database.init_db(); database.reset_demo()'
+
+Or simply use the 'Demo Controls' tab -> 'Reset Demo Data' button in the web UI.
+
+--------------------------------------------------------------------------------
+4. ENVIRONMENT CONFIGURATION (.env)
+--------------------------------------------------------------------------------
+
+The project works with Google Gemini GenAI and also has an offline fallback.
+File: .env
+Contents:
+  GEMINI_API_KEY=your_gemini_api_key_here
+  GEMINI_MODEL=gemini-3.5-flash-lite
+  PORT=5000
+
+--------------------------------------------------------------------------------
+5. QUICK TROUBLESHOOTING & PORT RELEASE
+--------------------------------------------------------------------------------
+
+If port 5000 is already in use by another background process:
+  Stop-Process -Id (Get-NetTCPConnection -LocalPort 5000).OwningProcess -Force
+
+To install dependencies manually if needed:
+  .\venv\Scripts\pip install -r requirements.txt
+
+================================================================================

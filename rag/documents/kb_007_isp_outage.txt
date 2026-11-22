@@ -1,0 +1,11 @@
+Title: Identifying Upstream ISP Infrastructure and Optical Distribution Network Faults
+Section: FTTH Optical Line Terminal (OLT) and Loss of Signal (LOS) Handling
+Category: isp_outage
+Source: ITU-T G.984 GPON Standard / ISP Operations Handbook
+
+Summary:
+A fiber-to-the-home (FTTH) connection uses passive optical splitters between the central office Optical Line Terminal (OLT) and the customer Optical Network Terminal (ONT).
+Key indicators of ISP infrastructure failure:
+1. ONT Red Blinking LOS (Loss of Signal): indicates optical power received is below the -28 dBm sensitivity threshold, signifying a physical glass fiber break, disconnected patch cord, or upstream distribution hub cut.
+2. Multiple subscriber impact: when adjacent customers served by the same feeder tree experience simultaneous disconnection, customer premises equipment (CPE) power cycling is ineffective.
+3. Escalation Protocol: Cases with red LOS must be flagged directly to Level 2 ISP field dispatch with a 4-hour SLA for physical optical time-domain reflectometer (OTDR) trace and splicing.

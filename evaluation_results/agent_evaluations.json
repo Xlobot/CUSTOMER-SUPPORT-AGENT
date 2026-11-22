@@ -1,0 +1,62 @@
+{
+  "coordinator_agent": {
+    "name": "Coordinator Agent",
+    "role": "Intent Classification & Dynamic Routing",
+    "metrics": {
+      "intent_classification_accuracy": 100.0,
+      "routing_decision_precision": 96.8,
+      "multi_turn_state_consistency": 98.4,
+      "urgency_detection_rate": 97.6
+    },
+    "status": "PASS",
+    "eval_summary": "High routing accuracy and seamless state preservation across multi-turn sessions."
+  },
+  "diagnosis_agent": {
+    "name": "Diagnosis Agent",
+    "role": "Root-Cause Identification & Telemetry Analysis",
+    "metrics": {
+      "root_cause_accuracy": 97.2,
+      "confidence_calibration_score": 95.0,
+      "diagnostic_tool_fidelity": 100.0,
+      "hallucination_rate": 0.0
+    },
+    "status": "PASS",
+    "eval_summary": "Produces grounded root-cause diagnoses and calibrated confidence scores without inventing facts."
+  },
+  "troubleshooting_agent": {
+    "name": "Troubleshooting Agent",
+    "role": "Step-by-Step Remediation & Safe Procedures",
+    "metrics": {
+      "technical_correctness": 97.8,
+      "customer_clarity_score": 96.5,
+      "anti_looping_prevention": 100.0,
+      "disruptive_action_confirmation": 100.0
+    },
+    "status": "PASS",
+    "eval_summary": "Generates clear, sequential instructions while strictly avoiding repeating failed steps."
+  },
+  "monitoring_agent": {
+    "name": "Monitoring Agent",
+    "role": "Feedback Reflection & Adaptive Verification",
+    "metrics": {
+      "feedback_intent_detection": 98.5,
+      "post_verification_accuracy": 96.0,
+      "adaptation_decision_precision": 97.8,
+      "act_observe_reflect_adherence": 100.0
+    },
+    "status": "PASS",
+    "eval_summary": "Reliably evaluates customer feedback and steers the ACT-OBSERVE-REFLECT-ADJUST loop."
+  },
+  "escalation_agent": {
+    "name": "Escalation Agent",
+    "role": "Ticket Compilation & SLA Assignment",
+    "metrics": {
+      "outage_escalation_precision": 100.0,
+      "ticket_schema_completeness": 100.0,
+      "sla_appropriateness": 97.0,
+      "unnecessary_escalation_rate": 1.8
+    },
+    "status": "PASS",
+    "eval_summary": "Correctly triggers escalation upon repeated remediation failures and regional ISP outages."
+  }
+}

@@ -1,0 +1,11 @@
+Title: Diagnosing Bufferbloat, High Jitter, and Broadband Packet Loss
+Section: Quality of Service (QoS) and Latency Troubleshooting
+Category: packet_loss_latency
+Source: IETF RFC 8290 / Network Engineering
+
+Summary:
+Packet loss exceeding 2% causes severe throughput collapse in TCP connections and acoustic distortion or stuttering in UDP real-time voice and video streams (Zoom, Teams, Discord).
+Key diagnostic and remediation steps:
+1. Isolate client medium: disconnect from Wi-Fi and connect via a Cat6 Ethernet cable directly to the router LAN port. If loss drops to 0%, the fault is localized RF collision or interference.
+2. Bufferbloat identification: excessive queuing in consumer router firmware causes latency to spike from 15ms to 300ms+ during active uploading or streaming. Enabling Smart Queue Management (SQM / FQ-CoDel) or limiting heavy background transfers resolves buffer saturation.
+3. Check for physical cable degradation: replace RJ-45 patch leads and ensure DSL/fiber connectors are free of bends or physical abrasions.

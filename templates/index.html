@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetCare AI — Autonomous Network Support System</title>
+  <meta name="description"
+    content="NetCare AI is an autonomous customer support system that troubleshoots internet connectivity issues using a fine-tuned multi-agent architecture and closed-loop adaptation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════ HEADER ══ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="6" fill="#1E293B" />
+            <path d="M5 14H9L12 8L16 20L19 14H23" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <span class="logo-title">NetCare<span class="logo-ai">AI</span></span>
+          <span class="logo-sub">Autonomous Network Support System</span>
+        </div>
+      </div>
+      <div class="header-badges">
+        <a href="/performance" class="btn btn-sm btn-header">Model Performance</a>
+        <a href="/monitoring" class="btn btn-sm btn-header">Server Console</a>
+        <div class="model-picker-container" style="display:flex;align-items:center;gap:6px;">
+          <select id="header-model-select" class="header-model-select" onchange="switchModel(this.value)"
+            title="Active AI Inference Engine">
+            <option value="netcare-ft-local">NetCare Local Model (Fine-Tuned)</option>
+            <option value="offline-rules">Offline Rule Engine</option>
+            <option value="gemini-3.5-flash">Gemini 3.5 Flash</option>
+            <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash Lite</option>
+          </select>
+          <button class="btn btn-sm btn-header" id="btn-ping-header" onclick="testActiveModel()"
+            title="Verify inference latency">Test</button>
+        </div>
+        <span id="gemini-badge" class="badge badge-active"><span class="status-dot"></span> NetCare Local Model</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ NAV ══ -->
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="dashboard" id="nav-dashboard">Dashboard</button>
+    <button class="tab-btn" data-tab="support" id="nav-support">Customer Support</button>
+    <button class="tab-btn" data-tab="agents" id="nav-agents">Agent Activity</button>
+    <button class="tab-btn" data-tab="tickets" id="nav-tickets">Support Tickets</button>
+    <button class="tab-btn" data-tab="cases" id="nav-cases">Previous Cases</button>
+    <button class="tab-btn" data-tab="demo" id="nav-demo">Demo Controls</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ MAIN ══ -->
+  <main class="main-content">
+
+    <!-- ── DASHBOARD ──────────────────────────────────── -->
+    <section id="tab-dashboard" class="tab-panel active">
+      <div class="section-header">
+        <h1>Operations Dashboard</h1>
+        <p>Operational telemetry and active multi-agent system state</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Sessions</div>
+          <div class="stat-value tabular" id="stat-total">—</div>
+          <div class="stat-sub">Recorded support sessions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Resolved Cases</div>
+          <div class="stat-value tabular" id="stat-resolved">—</div>
+          <div class="stat-sub">Diagnosed and remediated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Open Tickets</div>
+          <div class="stat-value tabular" id="stat-tickets">—</div>
+          <div class="stat-sub">Escalated to engineering</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Resolution Rate</div>
+          <div class="stat-value tabular" id="stat-rate">—</div>
+          <div class="stat-sub">First-contact resolution percentage</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-header">Recent Support Tickets</div>
+          <div id="dash-tickets" class="list-placeholder">Loading ticket records…</div>
+        </div>
+        <div class="card">
+          <div class="card-header">Recently Resolved Cases</div>
+          <div id="dash-cases" class="list-placeholder">Loading resolved cases…</div>
+        </div>
+      </div>
+
+      <!-- Architecture Overview -->
+      <div class="card mt-2">
+        <div class="card-header">Multi-Agent System Architecture</div>
+        <div class="arch-grid">
+          <div class="arch-item arch-coordinator">
+            <strong>Coordinator</strong>
+            <span>Directs workflow &amp; intent</span>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col">
+            <div class="arch-item arch-diagnosis">
+              <strong>Diagnosis</strong>
+              <span>Analyzes network telemetry</span>
+            </div>
+            <div class="arch-item arch-troubleshoot">
+              <strong>Troubleshooting</strong>
+              <span>Step-by-step remediation</span>
+            </div>
+          </div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-col">
+            <div class="arch-item arch-monitor">
+              <strong>Monitoring</strong>
+              <span>Closed-loop feedback cycle</span>
+            </div>
+            <div class="arch-item arch-escalation">
+              <strong>Escalation</strong>
+              <span>SLA &amp; engineering tickets</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CUSTOMER SUPPORT ────────────────────────────── -->
+    <section id="tab-support" class="tab-panel">
+      <div class="section-header">
+        <h1>Customer Support Console</h1>
+        <p>Interactive multi-agent network troubleshooting with closed-loop adaptation</p>
+      </div>
+
+      <div class="support-layout">
+        <!-- LEFT: Setup + Customer Info -->
+        <div class="support-sidebar">
+          <!-- Customer Selection -->
+          <div class="card">
+            <div class="card-header">Customer Account</div>
+            <div class="form-group">
+              <label for="customer-select">Demo Customer Profile</label>
+              <select id="customer-select">
+                <option value="">— Select an account —</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="customer-id-input">Or Enter Customer ID</label>
+              <input type="text" id="customer-id-input" placeholder="e.g. NET1001" maxlength="10" />
+            </div>
+            <button class="btn btn-primary" id="btn-load-customer" onclick="loadCustomer()">Load Account</button>
+          </div>
+
+          <!-- Customer Info Card -->
+          <div class="card" id="customer-card" style="display:none">
+            <div class="card-header">Account Details</div>
+            <div id="customer-info"></div>
+          </div>
+
+          <!-- Scenario Selector -->
+          <div class="card">
+            <div class="card-header">Diagnostic Scenario</div>
+            <p class="hint">Select a simulated scenario for demonstration</p>
+            <select id="scenario-select">
+              <option value="router_disconnected">Router Disconnected</option>
+              <option value="device_connectivity">Device Wi-Fi Configuration</option>
+              <option value="isp_outage">External ISP Outage</option>
+              <option value="persistent_failure">Persistent Unknown Failure</option>
+              <option value="resolved_quickly">Immediate Resolution</option>
+            </select>
+            <p class="hint simulated-label">All diagnostic probes run through safe sandbox or simulated telemetry.</p>
+          </div>
+
+          <!-- Session Launcher -->
+          <div class="card" id="session-controls-card">
+            <div class="card-header">Session Controls</div>
+            <div class="form-group">
+              <label for="initial-issue-input">Customer Issue Statement</label>
+              <input type="text" id="initial-issue-input" placeholder="Describe the connectivity problem..."
+                value="My internet has stopped working. Help me fix it." />
+            </div>
+            <button class="btn btn-primary" id="btn-start" style="width:100%;margin-bottom:8px"
+              onclick="startSession()">Start Support Session</button>
+            <button class="btn btn-secondary" id="btn-new-session" style="width:100%;display:none"
+              onclick="resetActiveSession()">Start New Session</button>
+          </div>
+
+          <!-- Adaptation Stage Indicator -->
+          <div class="card" id="stage-card">
+            <div class="card-header">Adaptation Stage</div>
+            <div class="stages-row">
+              <div class="stage-pill" id="stage-act">ACT</div>
+              <div class="stage-arrow">→</div>
+              <div class="stage-pill" id="stage-observe">OBSERVE</div>
+              <div class="stage-arrow">→</div>
+              <div class="stage-pill" id="stage-reflect">REFLECT</div>
+              <div class="stage-arrow">→</div>
+              <div class="stage-pill" id="stage-adjust">ADJUST</div>
+            </div>
+            <div id="stage-description" class="stage-desc">Initialize a support session to start.</div>
+          </div>
+
+          <!-- Diagnosis Summary -->
+          <div class="card" id="diag-card" style="display:none">
+            <div class="card-header">Diagnostic Assessment <span class="simulated-tag">TELEMETRY</span></div>
+            <div id="diag-content"></div>
+          </div>
+
+          <!-- Past Case -->
+          <div class="card" id="past-case-card" style="display:none">
+            <div class="card-header">Retrieved Past Case</div>
+            <div id="past-case-content"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Chat Interface -->
+        <div class="support-main">
+          <div class="card chat-card">
+            <div class="card-header">
+              <span>NetCare AI Support Console</span>
+              <span id="session-badge" class="session-badge" style="display:none"></span>
+            </div>
+            <div id="chat-window" class="chat-window">
+              <div class="chat-welcome">
+                <h3>Support Session Inactive</h3>
+                <p>Select a customer account and scenario on the left, then click <strong>Start Support Session</strong>
+                  to initiate the multi-agent workflow.</p>
+              </div>
+            </div>
+
+            <!-- Feedback Buttons -->
+            <div id="feedback-row" class="feedback-row" style="display:none">
+              <p class="feedback-label">Customer Feedback Assessment:</p>
+              <button class="btn btn-success" onclick="submitFeedback('working')">Connection Restored</button>
+              <button class="btn btn-danger" onclick="submitFeedback('not_working')">Issue Unresolved</button>
+              <button class="btn btn-secondary" onclick="submitFeedback('try_another')">Request Alternative Fix</button>
+            </div>
+
+            <!-- Message Input -->
+            <div class="chat-input-row">
+              <input type="text" id="chat-message"
+                placeholder="Type a response or question for the support agent... (Enter to send)"
+                onkeydown="if(event.key==='Enter') sendChatMessage()" />
+              <button class="btn btn-primary" id="btn-send" onclick="sendChatMessage()">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AGENT ACTIVITY ──────────────────────────────── -->
+    <section id="tab-agents" class="tab-panel">
+      <div class="section-header">
+        <h1>Agent Activity Monitor</h1>
+        <p>Real-time execution telemetry across all five specialized agents</p>
+      </div>
+
+      <!-- Agent Role Cards -->
+      <div class="agents-grid">
+        <div class="agent-card agent-coordinator">
+          <div class="agent-info">
+            <strong>Coordinator Agent</strong>
+            <span>Receives customer inquiries, retrieves account context, routes intent to domain specialists, and
+              manages conversation state.</span>
+          </div>
+          <div class="agent-status" id="status-coordinator">Idle</div>
+        </div>
+        <div class="agent-card agent-diagnosis">
+          <div class="agent-info">
+            <strong>Diagnosis Agent</strong>
+            <span>Executes safe network probes, inspects gateway, DNS, and latency telemetry, and calibrates
+              confidence-weighted root causes.</span>
+          </div>
+          <div class="agent-status" id="status-diagnosis">Idle</div>
+        </div>
+        <div class="agent-card agent-troubleshoot">
+          <div class="agent-info">
+            <strong>Troubleshooting Agent</strong>
+            <span>Generates verified, customer-friendly remediation steps with anti-looping safeguards and confirmation
+              gates.</span>
+          </div>
+          <div class="agent-status" id="status-troubleshoot">Idle</div>
+        </div>
+        <div class="agent-card agent-monitor">
+          <div class="agent-info">
+            <strong>Monitoring Agent</strong>
+            <span>Executes the closed-loop ACT → OBSERVE → REFLECT → ADJUST lifecycle to verify post-fix network
+              restoration.</span>
+          </div>
+          <div class="agent-status" id="status-monitor">Idle</div>
+        </div>
+        <div class="agent-card agent-escalation">
+          <div class="agent-info">
+            <strong>Escalation Agent</strong>
+            <span>Generates structured support tickets (TKT-XXXX) with calibrated SLA priorities for issues requiring
+              engineering intervention.</span>
+          </div>
+          <div class="agent-status" id="status-escalation">Idle</div>
+        </div>
+      </div>
+
+      <!-- Activity Log -->
+      <div class="card mt-2">
+        <div class="card-header">Agent Execution Log <span id="session-log-label" class="hint"></span></div>
+        <div id="agent-log-table" class="log-placeholder">Start a support session to view execution telemetry.</div>
+      </div>
+    </section>
+
+    <!-- ── SUPPORT TICKETS ─────────────────────────────── -->
+    <section id="tab-tickets" class="tab-panel">
+      <div class="section-header">
+        <h1>Support Tickets</h1>
+        <p>Escalated cases requiring technical engineering or ISP intervention</p>
+      </div>
+      <div class="card">
+        <div class="card-header-row">
+          <div class="card-header">All Support Tickets</div>
+          <button class="btn btn-sm btn-secondary" onclick="loadTickets()">Refresh</button>
+        </div>
+        <div id="tickets-table" class="log-placeholder">Loading tickets…</div>
+      </div>
+    </section>
+
+    <!-- ── PREVIOUS CASES ──────────────────────────────── -->
+    <section id="tab-cases" class="tab-panel">
+      <div class="section-header">
+        <h1>Case-Based Reasoning Memory</h1>
+        <p>Historical resolved cases used to inform immediate diagnosis and remediation</p>
+      </div>
+      <div class="card mb-2">
+        <div class="card-header">Search Past Cases</div>
+        <div class="search-row">
+          <input type="text" id="case-search-input"
+            placeholder="Search by symptom or keyword (e.g. router, wifi, outage, DNS)..." />
+          <button class="btn btn-primary" onclick="searchCases()">Search</button>
+        </div>
+        <div id="search-results"></div>
+      </div>
+      <div class="card">
+        <div class="card-header-row">
+          <div class="card-header">Resolved Case History</div>
+          <button class="btn btn-sm btn-secondary" onclick="loadCases()">Refresh</button>
+        </div>
+        <div id="cases-table" class="log-placeholder">Loading cases…</div>
+      </div>
+    </section>
+
+    <!-- ── DEMO CONTROLS ───────────────────────────────── -->
+    <section id="tab-demo" class="tab-panel">
+      <div class="section-header">
+        <h1>Demonstration Controls</h1>
+        <p>Pre-configured scenarios for jury demonstration and technical verification</p>
+      </div>
+
+      <div class="scenarios-grid">
+        <!-- Scenario 1 -->
+        <div class="scenario-card">
+          <div class="scenario-num">01</div>
+          <h3>First-Contact Resolution</h3>
+          <p>Local router restart clears transient link error. Issue resolved and committed to case memory.</p>
+          <div class="scenario-steps">
+            <ol>
+              <li>Select customer <strong>NET1001</strong></li>
+              <li>Scenario: <strong>Immediate Resolution</strong></li>
+              <li>Click <strong>Start Session</strong></li>
+              <li>Confirm <strong>Connection Restored</strong></li>
+            </ol>
+          </div>
+          <button class="btn btn-success" onclick="runScenario1()">Run Scenario 1</button>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div class="scenario-card">
+          <div class="scenario-num">02</div>
+          <h3>Closed-Loop Adaptation</h3>
+          <p>Initial action fails. System executes ACT → OBSERVE → REFLECT → ADJUST to provide an alternative solution.
+          </p>
+          <div class="scenario-steps">
+            <ol>
+              <li>Select customer <strong>NET1002</strong></li>
+              <li>Scenario: <strong>Router Disconnected</strong></li>
+              <li>Click <strong>Start Session</strong></li>
+              <li>Select <strong>Issue Unresolved</strong></li>
+              <li>Review the adaptive adjustment</li>
+            </ol>
+          </div>
+          <button class="btn btn-warning" onclick="runScenario2()">Run Scenario 2</button>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div class="scenario-card">
+          <div class="scenario-num">03</div>
+          <h3>Engineering Escalation</h3>
+          <p>External ISP outage detected. Automated remediation ceases and a structured engineering ticket is created.
+          </p>
+          <div class="scenario-steps">
+            <ol>
+              <li>Select customer <strong>NET1003</strong></li>
+              <li>Scenario: <strong>External ISP Outage</strong></li>
+              <li>Click <strong>Start Session</strong></li>
+              <li>Review generated support ticket</li>
+            </ol>
+          </div>
+          <button class="btn btn-danger" onclick="runScenario3()">Run Scenario 3</button>
+        </div>
+      </div>
+
+      <!-- Multi-Model Inspector & Tester -->
+      <div class="card mt-2">
+        <div class="card-header">AI Inference Engine Selection</div>
+        <p class="hint">Toggle between the fine-tuned local NetCare model, cloud models, or the rule-based fallback:</p>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0;">
+          <div style="flex:1;min-width:260px;">
+            <label for="demo-model-select"
+              style="font-size:12px;font-weight:500;display:block;margin-bottom:4px;color:var(--text-secondary);">Active
+              Foundation Model</label>
+            <select id="demo-model-select" onchange="switchModel(this.value)">
+              <option value="netcare-ft-local">NetCare Domain Model (Fine-Tuned Qwen2.5-3B Local)</option>
+              <option value="gemini-3.5-flash">Gemini 3.5 Flash (Cloud API)</option>
+              <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash Lite (Cloud Fast API)</option>
+              <option value="offline-rules">Offline Rule Engine (Deterministic Rule-Based)</option>
+            </select>
+          </div>
+          <div style="align-self:flex-end;">
+            <button class="btn btn-primary" id="btn-test-model" onclick="testActiveModel()">Test Active Model</button>
+          </div>
+        </div>
+        <div id="model-test-result"
+          style="display:none;background:var(--bg-sunken);border:1px solid var(--border);border-radius:var(--radius-control);padding:12px;margin-top:10px;font-size:12px;">
+        </div>
+      </div>
+
+      <!-- Reset -->
+      <div class="card mt-2">
+        <div class="card-header">System State Reset</div>
+        <p class="hint">Clear all demo sessions, tickets, and resolved cases. Customer records are preserved.</p>
+        <button class="btn btn-danger" onclick="resetDemo()">Reset Demo Data</button>
+        <div id="reset-message" class="reset-msg" style="display:none"></div>
+      </div>
+
+      <!-- Quick Scenario Helper -->
+      <div class="card mt-2">
+        <div class="card-header">Quick Launch</div>
+        <p class="hint">Jump directly to the Customer Support console with a pre-configured scenario.</p>
+        <div class="quick-btns">
+          <button class="btn btn-secondary" onclick="quickLaunch('NET1001','resolved_quickly')">Scenario 1 — Quick
+            Fix</button>
+          <button class="btn btn-secondary" onclick="quickLaunch('NET1002','router_disconnected')">Scenario 2 —
+            Adapt</button>
+          <button class="btn btn-secondary" onclick="quickLaunch('NET1003','isp_outage')">Scenario 3 — Escalate</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════ TOAST ══ -->
+  <div id="toast" class="toast" style="display:none"></div>
+
+  <script src="/static/script.js"></script>
+</body>
+
+</html>

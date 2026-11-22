@@ -1,0 +1,149 @@
+[
+  {
+    "id": "device_connectivity_023",
+    "text": "WLAN profile corrupted on this particular Windows 11 machine.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_004",
+    "text": "My MacBook connects fine but my Windows desktop shows Wi-Fi turned off.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_020",
+    "text": "DNS server is not responding, troubleshooting cannot contact DNS server.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_013",
+    "text": "Wifi disconnects randomly throughout the day in the bedroom.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_003",
+    "text": "Getting DNS_PROBE_FINISHED_NXDOMAIN when trying to open any site.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_027",
+    "text": "Device cannot obtain dynamic IP address lease from local gateway.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "wifi_signal_issue_000",
+    "text": "My wifi keeps cutting out every 5 mins when I am sitting in the bedroom upstairs.",
+    "label": "wifi_signal_issue",
+    "intent": "intermittent_wifi_drop",
+    "severity": "Low"
+  },
+  {
+    "id": "device_connectivity_002",
+    "text": "Only my personal PC has no internet, all other devices in the house work perfectly.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dhcp_ip_configuration_000",
+    "text": "Laptop connected to wifi with an exclamation mark, says No Internet and IP is 169.254.88.12",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_004",
+    "text": "Nothing loads on my computer, router shows internet light off.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_019",
+    "text": "Single client connection failure, network works on all other hardware.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "dns_resolution_019",
+    "text": "Cannot resolve any website domain names, DNS lookup timeout error.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_027",
+    "text": "Fiber distribution hub down, optical loss of signal across whole sector.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "dhcp_ip_configuration_013",
+    "text": "Cannot get local IP address from router, keeps saying obtaining address.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "dns_resolution_029",
+    "text": "Primary DNS server failure, domain names cannot be resolved.",
+    "label": "dns_resolution",
+    "intent": "dns_lookup_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "device_connectivity_021",
+    "text": "Device says incorrect password even though it is the exact same network key.",
+    "label": "device_connectivity",
+    "intent": "single_device_wifi_failure",
+    "severity": "Low"
+  },
+  {
+    "id": "isp_outage_014",
+    "text": "Upstream fiber line snapped during storm, LOS light flashing red continuously.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  },
+  {
+    "id": "packet_loss_latency_009",
+    "text": "High ping and packet loss making it impossible to stream or do video calls.",
+    "label": "packet_loss_latency",
+    "intent": "packet_loss_jitter",
+    "severity": "Medium"
+  },
+  {
+    "id": "router_wan_issue_016",
+    "text": "No data passing through router, default gateway reachable but wan port offline.",
+    "label": "router_wan_issue",
+    "intent": "report_outage_or_disconnection",
+    "severity": "Medium"
+  },
+  {
+    "id": "dhcp_ip_configuration_012",
+    "text": "Router won't hand out an IP address to my new laptop, stuck on 169.254.",
+    "label": "dhcp_ip_configuration",
+    "intent": "dhcp_lease_failure",
+    "severity": "Medium"
+  },
+  {
+    "id": "isp_outage_021",
+    "text": "Main incoming fiber cable damaged by road excavation, all units offline.",
+    "label": "isp_outage",
+    "intent": "isp_backbone_outage",
+    "severity": "High"
+  }
+]

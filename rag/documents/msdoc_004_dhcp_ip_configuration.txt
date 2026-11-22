@@ -1,0 +1,6 @@
+Title: Troubleshooting DHCP Address Assignment and Lease Depletion
+Section: APIPA and DHCP Server Snooping
+Category: dhcp_ip_configuration
+Source: Microsoft Learn / Dynamic Host Configuration Protocol
+
+When a Windows DHCP client fails to obtain an IP address during DORA (Discover, Offer, Request, Acknowledge), it assigns an APIPA (169.254.0.1 to 169.254.255.254). Troubleshoot by: checking if the router DHCP scope has exhausted its pool limit; restarting the router DHCP service; checking for rogue DHCP servers or MAC address filtering enabled on the router.

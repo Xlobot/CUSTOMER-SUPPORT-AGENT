@@ -1,0 +1,6 @@
+Title: Troubleshooting Default Gateway and Route Issues
+Section: Default Gateway Unreachable (Error 1231)
+Category: router_wan_issue
+Source: Microsoft Learn / TCP/IP Overview
+
+The default gateway is the node that routes traffic from the local subnet to remote networks (including the Internet). If `ping <default_gateway>` returns 'Destination host unreachable' or 'Request timed out': Verify the physical network interface link status (up/down). Ensure the client IP address and the default gateway IP are on the same CIDR subnet mask (e.g. 192.168.1.50 and 192.168.1.1 with mask 255.255.255.0). A non-responsive gateway usually indicates router power failure, bridge configuration error, or hardware failure.

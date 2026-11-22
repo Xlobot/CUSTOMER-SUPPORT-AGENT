@@ -1,0 +1,34 @@
+[
+  {
+    "id": "msdoc_001",
+    "title": "Fix Wi-Fi Connection Issues in Windows",
+    "section": "Standard TCP/IP Stack and Winsock Reset",
+    "content": "To reset the network stack in Windows: 1. Open Command Prompt as Administrator. 2. Type `netsh winsock reset` and press Enter. 3. Type `netsh int ip reset` and press Enter. 4. Type `ipconfig /release` and `ipconfig /renew`. 5. Type `ipconfig /flushdns` and restart the computer. This procedure resets corrupted Winsock catalogs, rebuilds IP routing tables, and flushes resolver caches.",
+    "category": "device_connectivity",
+    "source": "Microsoft Learn / Windows Client Networking Troubleshooting"
+  },
+  {
+    "id": "msdoc_002",
+    "title": "Troubleshooting Default Gateway and Route Issues",
+    "section": "Default Gateway Unreachable (Error 1231)",
+    "content": "The default gateway is the node that routes traffic from the local subnet to remote networks (including the Internet). If `ping <default_gateway>` returns 'Destination host unreachable' or 'Request timed out': Verify the physical network interface link status (up/down). Ensure the client IP address and the default gateway IP are on the same CIDR subnet mask (e.g. 192.168.1.50 and 192.168.1.1 with mask 255.255.255.0). A non-responsive gateway usually indicates router power failure, bridge configuration error, or hardware failure.",
+    "category": "router_wan_issue",
+    "source": "Microsoft Learn / TCP/IP Overview"
+  },
+  {
+    "id": "msdoc_003",
+    "title": "Diagnosing DNS Client Resolution Failures",
+    "section": "DNS Query Timeouts and Server Failures",
+    "content": "When DNS resolution fails, applications report DNS_PROBE_FINISHED_NXDOMAIN or SERVER_FAILED. Use `nslookup google.com` to isolate the responding DNS server. If the primary DNS server fails to respond, query a known resolver directly: `nslookup google.com 8.8.8.8`. If the direct query succeeds while the router DNS fails, configure public DNS servers statically in IPv4 adapter properties.",
+    "category": "dns_resolution",
+    "source": "Microsoft Learn / Windows TSS Networking Scenarios"
+  },
+  {
+    "id": "msdoc_004",
+    "title": "Troubleshooting DHCP Address Assignment and Lease Depletion",
+    "section": "APIPA and DHCP Server Snooping",
+    "content": "When a Windows DHCP client fails to obtain an IP address during DORA (Discover, Offer, Request, Acknowledge), it assigns an APIPA (169.254.0.1 to 169.254.255.254). Troubleshoot by: checking if the router DHCP scope has exhausted its pool limit; restarting the router DHCP service; checking for rogue DHCP servers or MAC address filtering enabled on the router.",
+    "category": "dhcp_ip_configuration",
+    "source": "Microsoft Learn / Dynamic Host Configuration Protocol"
+  }
+]

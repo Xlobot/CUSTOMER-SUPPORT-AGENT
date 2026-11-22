@@ -1,0 +1,6 @@
+Title: Fix Wi-Fi Connection Issues in Windows
+Section: Standard TCP/IP Stack and Winsock Reset
+Category: device_connectivity
+Source: Microsoft Learn / Windows Client Networking Troubleshooting
+
+To reset the network stack in Windows: 1. Open Command Prompt as Administrator. 2. Type `netsh winsock reset` and press Enter. 3. Type `netsh int ip reset` and press Enter. 4. Type `ipconfig /release` and `ipconfig /renew`. 5. Type `ipconfig /flushdns` and restart the computer. This procedure resets corrupted Winsock catalogs, rebuilds IP routing tables, and flushes resolver caches.

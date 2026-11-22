@@ -1,0 +1,39 @@
+{
+  "status": "success",
+  "raw_counts": {
+    "teleqna_count": 8,
+    "stack_exchange_count": 6,
+    "microsoft_docs_count": 4,
+    "dialogues_count": 8
+  },
+  "classification_samples": {
+    "total": 210,
+    "train": 168,
+    "val": 21,
+    "test": 21,
+    "category_distribution": {
+      "isp_outage": 30,
+      "wifi_signal_issue": 30,
+      "packet_loss_latency": 30,
+      "dhcp_ip_configuration": 30,
+      "router_wan_issue": 30,
+      "device_connectivity": 30,
+      "dns_resolution": 30
+    }
+  },
+  "sft_samples": {
+    "total": 1050,
+    "train": 840,
+    "val": 105,
+    "test": 105,
+    "agent_role_distribution": {
+      "diagnosis": 210,
+      "escalation": 210,
+      "troubleshooting": 210,
+      "monitoring": 210,
+      "coordinator": 210
+    }
+  },
+  "data_leakage_prevented": true,
+  "split_ratio": "80% Train, 10% Validation, 10% Test"
+}

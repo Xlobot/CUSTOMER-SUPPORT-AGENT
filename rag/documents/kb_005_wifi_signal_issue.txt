@@ -1,0 +1,12 @@
+Title: Troubleshooting Wi-Fi Signal Attenuation, Co-Channel Interference, and Dead Zones
+Section: IEEE 802.11 Wireless Optimization Guidelines
+Category: wifi_signal_issue
+Source: IEEE / Network Engineering Guidelines
+
+Summary:
+Wi-Fi signal propagation is bounded by free-space path loss and RF attenuation when penetrating structural elements (concrete, bricks, tinted glass, metal lathe). 
+Key guidelines:
+1. 2.4GHz band (channels 1, 6, 11 non-overlapping) provides greater wall penetration but lower maximum bandwidth (up to ~100 Mbps practical).
+2. 5GHz band (channels 36-165) provides high throughput and wider channel bonding (40/80 MHz) but attenuates rapidly beyond 1-2 standard walls.
+3. Repositioning the router to a central, elevated position (at least 3-5 feet above floor level) away from metallic appliances and microwaves dramatically improves RSSI signal-to-noise ratio.
+4. If clients experience roaming ping-pong between 2.4G and 5G, separate the SSID names (e.g. HomeNet_2.4G and HomeNet_5G) to anchor the client.

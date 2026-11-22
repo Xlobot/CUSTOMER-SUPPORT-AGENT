@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server Monitoring & Telemetry Console — NetCare AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body class="monitoring-page" style="background-color:#0B0F19;color:#F8FAFC;min-height:100vh;">
+
+  <!-- ═══════════════════════════════════════════ HEADER ══ -->
+  <header class="site-header" style="background-color:#0F172A;border-bottom:1px solid #1E293B;">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="6" fill="#1E293B" />
+            <path d="M5 14H9L12 8L16 20L19 14H23" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <span class="logo-title" style="color:#FFFFFF;">NetCare<span class="logo-ai"
+              style="color:#38BDF8;background:#1E293B;border-color:#334155;">Telemetry</span></span>
+          <span class="logo-sub" style="color:#94A3B8;">Real-Time Backend Console & In-Memory Logs</span>
+        </div>
+      </div>
+      <div class="header-badges">
+        <a href="/" class="btn btn-sm btn-header">Customer Support</a>
+        <a href="/performance" class="btn btn-sm btn-header">Model Performance</a>
+        <span id="server-status-pill" class="badge"
+          style="background:#064E3B;border:1px solid #059669;color:#A7F3D0;"><span class="status-dot"></span>
+          Operational</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ MAIN CONSOLE ══ -->
+  <main class="main-content" style="max-width:1380px;margin:20px auto;padding:0 24px;">
+
+    <!-- Top Status Bar & Metrics -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:14px;margin-bottom:20px;">
+      <!-- Server Uptime -->
+      <div style="background:#131B2E;border:1px solid #1E293B;border-radius:var(--radius-card);padding:16px;">
+        <div style="font-size:11px;color:#94A3B8;font-weight:500;">Server uptime</div>
+        <div id="stat-uptime"
+          style="font-size:20px;font-weight:600;color:#38BDF8;font-family:'JetBrains Mono',monospace;margin-top:4px;">
+          00h 00m 00s</div>
+        <div style="font-size:11px;color:#10B981;margin-top:4px;"><span class="status-dot"
+            style="background:#10B981;"></span> Flask runtime operational</div>
+      </div>
+
+      <!-- Foundation Model Status -->
+      <div style="background:#131B2E;border:1px solid #1E293B;border-radius:var(--radius-card);padding:16px;">
+        <div style="font-size:11px;color:#94A3B8;font-weight:500;">Foundation model state</div>
+        <div id="stat-model-status" style="font-size:16px;font-weight:600;color:#10B981;margin-top:4px;">Loaded & Ready
+        </div>
+        <div id="stat-model-name"
+          style="font-size:11px;color:#94A3B8;margin-top:4px;font-family:'JetBrains Mono',monospace;">
+          NetCare-Domain-Adapted</div>
+      </div>
+
+      <!-- Request Counters -->
+      <div style="background:#131B2E;border:1px solid #1E293B;border-radius:var(--radius-card);padding:16px;">
+        <div style="font-size:11px;color:#94A3B8;font-weight:500;">Request activity</div>
+        <div id="stat-requests"
+          style="font-size:20px;font-weight:600;color:#F59E0B;font-family:'JetBrains Mono',monospace;margin-top:4px;">0
+          Total</div>
+        <div id="stat-agent-calls" style="font-size:11px;color:#94A3B8;margin-top:4px;">0 Agent Transitions</div>
+      </div>
+
+      <!-- Temporary Storage Guarantee -->
+      <div style="background:#131B2E;border:1px solid #1E293B;border-radius:var(--radius-card);padding:16px;">
+        <div style="font-size:11px;color:#94A3B8;font-weight:500;">Log storage mode</div>
+        <div style="font-size:16px;font-weight:600;color:#A855F7;margin-top:4px;">In-Memory Only</div>
+        <div style="font-size:11px;color:#94A3B8;margin-top:4px;">Volatile ring buffer (zero disk write)</div>
+      </div>
+    </div>
+
+    <!-- Active Agent Flow Architecture Map -->
+    <div
+      style="background:#131B2E;border:1px solid #1E293B;border-radius:var(--radius-card);padding:18px;margin-bottom:20px;">
+      <h3 style="margin:0 0 12px 0;font-size:13px;color:#F8FAFC;font-weight:600;">Specialized Agents Activity</h3>
+      <div style="display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;font-size:12px;">
+        <!-- Agent 1 -->
+        <div id="card-agent-coordinator"
+          style="background:#0B0F19;border:1px solid #1E293B;border-radius:var(--radius-control);padding:12px;border-top:2px solid #3B82F6;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong style="color:#60A5FA;font-weight:500;">1. Coordinator</strong>
+            <span class="status-dot" style="background:#10B981;"></span>
+          </div>
+          <div style="color:#94A3B8;font-size:11px;margin-top:2px;">Intent & Routing</div>
+          <div class="agent-last-act"
+            style="color:#E2E8F0;font-size:11px;margin-top:8px;font-family:'JetBrains Mono',monospace;">Idle</div>
+        </div>
+
+        <!-- Agent 2 -->
+        <div id="card-agent-diagnosis"
+          style="background:#0B0F19;border:1px solid #1E293B;border-radius:var(--radius-control);padding:12px;border-top:2px solid #10B981;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong style="color:#34D399;font-weight:500;">2. Diagnosis</strong>
+            <span class="status-dot" style="background:#10B981;"></span>
+          </div>
+          <div style="color:#94A3B8;font-size:11px;margin-top:2px;">Root-Cause Probes</div>
+          <div class="agent-last-act"
+            style="color:#E2E8F0;font-size:11px;margin-top:8px;font-family:'JetBrains Mono',monospace;">Idle</div>
+        </div>
+
+        <!-- Agent 3 -->
+        <div id="card-agent-troubleshoot"
+          style="background:#0B0F19;border:1px solid #1E293B;border-radius:var(--radius-control);padding:12px;border-top:2px solid #F59E0B;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong style="color:#FBBF24;font-weight:500;">3. Troubleshooting</strong>
+            <span class="status-dot" style="background:#10B981;"></span>
+          </div>
+          <div style="color:#94A3B8;font-size:11px;margin-top:2px;">Step Sequencing</div>
+          <div class="agent-last-act"
+            style="color:#E2E8F0;font-size:11px;margin-top:8px;font-family:'JetBrains Mono',monospace;">Idle</div>
+        </div>
+
+        <!-- Agent 4 -->
+        <div id="card-agent-monitor"
+          style="background:#0B0F19;border:1px solid #1E293B;border-radius:var(--radius-control);padding:12px;border-top:2px solid #8B5CF6;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong style="color:#A78BFA;font-weight:500;">4. Monitoring</strong>
+            <span class="status-dot" style="background:#10B981;"></span>
+          </div>
+          <div style="color:#94A3B8;font-size:11px;margin-top:2px;">Closed Loop</div>
+          <div class="agent-last-act"
+            style="color:#E2E8F0;font-size:11px;margin-top:8px;font-family:'JetBrains Mono',monospace;">Idle</div>
+        </div>
+
+        <!-- Agent 5 -->
+        <div id="card-agent-escalation"
+          style="background:#0B0F19;border:1px solid #1E293B;border-radius:var(--radius-control);padding:12px;border-top:2px solid #EF4444;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <strong style="color:#F87171;font-weight:500;">5. Escalation</strong>
+            <span class="status-dot" style="background:#10B981;"></span>
+          </div>
+          <div style="color:#94A3B8;font-size:11px;margin-top:2px;">Ticket SLA Engine</div>
+          <div class="agent-last-act"
+            style="color:#E2E8F0;font-size:11px;margin-top:8px;font-family:'JetBrains Mono',monospace;">Idle</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live In-Memory Telemetry Stream Console -->
+    <div style="background:#131B2E;border:1px solid #1E293B;border-radius:var(--radius-card);overflow:hidden;">
+      <div
+        style="background:#0F172A;padding:12px 18px;border-bottom:1px solid #1E293B;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:13px;font-weight:600;color:#F8FAFC;">In-Memory Temporary Log Stream</span>
+          <span
+            style="font-size:11px;color:#94A3B8;background:#1E293B;padding:2px 8px;border-radius:var(--radius-tag);border:1px solid #334155;">Volatile
+            Ring Buffer: Max 500 Records</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <select id="log-level-filter" onchange="filterLogs()"
+            style="background:#1E293B;color:#F8FAFC;border:1px solid #334155;border-radius:var(--radius-control);padding:4px 8px;font-size:11px;">
+            <option value="ALL">All Levels</option>
+            <option value="INFO">INFO</option>
+            <option value="AGENT">AGENT</option>
+            <option value="DIAG">DIAG</option>
+            <option value="WARN">WARN</option>
+            <option value="ERROR">ERROR</option>
+          </select>
+          <button class="btn btn-sm btn-header" onclick="clearLogs()">Clear Buffer</button>
+          <button class="btn btn-sm btn-header" id="btn-toggle-auto" onclick="toggleAutoRefresh()">Pause Stream</button>
+        </div>
+      </div>
+
+      <!-- Log Terminal Box -->
+      <div id="terminal-log-box"
+        style="height:480px;overflow-y:auto;background:#060911;padding:14px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.6;">
+        <div style="color:#64748B;">Connecting to in-memory telemetry stream…</div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="/static/monitoring.js"></script>
+</body>
+
+</html>
