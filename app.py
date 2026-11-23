@@ -352,11 +352,17 @@ def health():
 # ENTRY POINT
 # ─────────────────────────────────────────────
 
-if __name__ == "__main__":
+# Initialise database on module import (for gunicorn or direct python execution)
+try:
     db.init_db()
+except Exception as e:
+    print(f"[WARN] Database init warning: {e}")
+
+if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    print(f"\n🚀 NetCare AI Upgraded Multi-Agent System running at http://localhost:{port}")
+    debug_mode = os.environ.get("FLASK_DEBUG", "0").lower() in ("1", "true")
+    print(f"\n🚀 NetCare AI Upgraded Multi-Agent System running at http://0.0.0.0:{port}")
     print(f"🤖 Primary Intelligence: NetCare Domain Foundation Model (5 Specialized Agents)")
-    print(f"📊 Model Performance Dashboard: http://localhost:{port}/performance")
-    print(f"🖥️ Server Monitoring & Temporary Logs: http://localhost:{port}/monitoring\n")
-    app.run(debug=True, port=port)
+    print(f"📊 Model Performance Dashboard: http://0.0.0.0:{port}/performance")
+    print(f"🖥️ Server Monitoring & Temporary Logs: http://0.0.0.0:{port}/monitoring\n")
+    app.run(host="0.0.0.0", port=port, debug=debug_mode)

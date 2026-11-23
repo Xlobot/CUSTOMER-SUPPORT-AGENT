@@ -18,20 +18,26 @@ from monitoring.temporary_logs import log_event
 
 
 def ping_host(host: str = "8.8.8.8", count: int = 1, timeout_ms: int = 1000) -> dict:
-    """Safely pings an IP address or hostname using native Windows ping."""
+    """Safely pings an IP address or hostname using native OS ping (Windows/Linux)."""
     start_time = time.time()
     try:
-        # Safe command: ping -n 1 -w 1000 <host>
-        cmd = ["ping", "-n", str(count), "-w", str(timeout_ms), host]
+        if sys.platform == "win32":
+            cmd = ["ping", "-n", str(count), "-w", str(timeout_ms), host]
+        else:
+            timeout_sec = max(1, timeout_ms // 1000)
+            cmd = ["ping", "-c", str(count), "-W", str(timeout_sec), host]
+
         res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=3)
         duration_ms = round((time.time() - start_time) * 1000, 1)
 
-        output = res.stdout
-        is_success = "TTL=" in output or "Reply from" in output
+        output = res.stdout + ("\n" + res.stderr if res.stderr else "")
+        is_success = ("ttl=" in output.lower() or "reply from" in output.lower() or "bytes from" in output.lower()) and res.returncode == 0
 
-        # Extract round trip time if present
-        match = re.search(r"time[<=](\d+)ms", output)
-        latency_ms = int(match.group(1)) if match else (duration_ms if is_success else None)
+        # Extract round trip time if present (e.g. time=14ms or time=14.2 ms)
+        match = re.search(r"time[<=]?(\d+(?:\.\d+)?) ?ms", output, re.IGNORECASE)
+        latency_ms = float(match.group(1)) if match else (duration_ms if is_success else None)
+        if latency_ms is not None:
+            latency_ms = round(latency_ms, 1)
 
         result = {
             "check": f"Ping ({host})",
